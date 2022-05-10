@@ -40,7 +40,6 @@ socket.on('clientes-pendientes', tickets => {
         lblPendientes.style.display= '';
         lblPendientes.innerText = tickets
     }
-   
 })
 
 

@@ -11,6 +11,7 @@ const socketController = (socket) => {
     socket.on('siguiente-ticket', ( payload, callback ) => {
      
         const siguiente = ticketControl.siguiente();
+        socket.broadcast.emit('clientes-pendientes', ticketControl.tickets.length);
         callback( siguiente );
         
         // TODO: Notificar que hay un nuevo cliente 
