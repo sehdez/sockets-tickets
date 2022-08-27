@@ -10,8 +10,11 @@ const lblEscritorio3 = document.querySelector('#lblEscritorio3');
 const lblTicket4     = document.querySelector('#lblTicket4');
 const lblEscritorio4 = document.querySelector('#lblEscritorio4');
 
-const socket = io();
+const lblPendientes = document.querySelector('#lblPendientes');
+const divAlert      = document.querySelector('.alert');
+divAlert.style.display = 'none';
 
+const socket = io();
 
 
 socket.on('estado-actual', ( payload ) => {
@@ -45,3 +48,13 @@ socket.on('estado-actual', ( payload ) => {
 
 });
 
+socket.on('clientes-pendientes', tickets => {
+    if(tickets === 0){
+        lblPendientes.style.display = 'none';
+        divAlert.style.display = '';
+    }else{
+        lblPendientes.style.display= '';
+        lblPendientes.innerText = tickets
+        divAlert.style.display = 'none';
+    }
+})

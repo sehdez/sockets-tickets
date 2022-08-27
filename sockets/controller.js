@@ -25,7 +25,7 @@ const socketController = (socket) => {
         if(!escritorio){
             return callback({
                 ok : false,
-                msg: 'EL escritorio es obligatorio'
+                msg: 'El escritorio es obligatorio'
             });
         }
         const ticket = ticketControl.atenderTicket( escritorio );
